@@ -827,7 +827,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x8282;&#x6D41;">&#x8282;&#x6D41;</h1>
+                                <h1 align="center" id="&#x8282;&#x6D41;">&#x8282;&#x6D41;</h1>
+
 <p>&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x81EA;&#x7136;&#x4E5F;&#x4F1A;&#x5438;&#x5F15;&#x9762;&#x8BD5;&#x5B98;&#x4EEC;&#x7684;&#x6CE8;&#x610F;</p>
 <h2 id="&#x4EC0;&#x4E48;&#x662F;&#x8282;&#x6D41;">&#x4EC0;&#x4E48;&#x662F;&#x8282;&#x6D41;</h2>
 <p><strong>&#x56E0;&#x4E3A;&#xFF1A;</strong></p>
@@ -838,128 +839,127 @@
 </ul>
 <p><strong>&#x603B;&#x7ED3;&#xFF1A;</strong></p>
 <ul>
-<li><p>&#x9AD8;&#x9891;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x4F46;&#x5728;n&#x79D2;&#x5185;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x8282;&#x6D41;&#x4F1A;&#x7A00;&#x91CA;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x9891;&#x7387;
-```js
-/**</p>
-<ul>
-<li>Throttle execution of a function. Especially useful for rate limiting</li>
-<li>execution of handlers on events like resize and scroll.
-*</li>
-<li>@param  {Number}    delay          A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.</li>
-<li>@param  {Boolean}   [noTrailing]   Optional, defaults to false. If noTrailing is true, callback will only execute every <code>delay</code> milliseconds while the</li>
-<li>throttled-function is being called. If noTrailing is false or unspecified, callback will be executed one final time</li>
-<li>after the last throttled-function call. (After the throttled-function has not been called for <code>delay</code> milliseconds,</li>
-<li>the internal counter is reset)</li>
-<li>@param  {Function}  callback       A function to be executed after delay milliseconds. The <code>this</code> context and all arguments are passed through, as-is,</li>
-<li>to <code>callback</code> when the throttled-function is executed.</li>
-<li>@param  {Boolean}   [debounceMode] If <code>debounceMode</code> is true (at begin), schedule <code>clear</code> to execute after <code>delay</code> ms. If <code>debounceMode</code> is false (at end),</li>
-<li>schedule <code>callback</code> to execute after <code>delay</code> ms.
-*</li>
-<li><p>@return {Function}  A new, throttled, function.
-*/
-export default function ( delay, noTrailing, callback, debounceMode ) {</p>
-<p>/*</p>
-<ul>
-<li>After wrapper has stopped being called, this timeout ensures that</li>
-<li><code>callback</code> is executed at the proper times in <code>throttle</code> and <code>end</code></li>
-<li>debounce modes.
-*/
-var timeoutID;
-var cancelled = false;</li>
+<li>&#x9AD8;&#x9891;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x4F46;&#x5728;n&#x79D2;&#x5185;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x8282;&#x6D41;&#x4F1A;&#x7A00;&#x91CA;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x9891;&#x7387;</li>
 </ul>
-<p>// Keep track of the last time <code>callback</code> was executed.
-var lastExec = 0;</p>
-<p>// Function to clear existing timeout
-function clearExistingTimeout () {</p>
-<pre><code>if ( timeoutID ) {
-    clearTimeout(timeoutID);
-}
-</code></pre><p>}</p>
-<p>// Function to cancel next exec
-function cancel () {</p>
-<pre><code>clearExistingTimeout();
-cancelled = true;
-</code></pre><p>}</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>// `noTrailing` defaults to falsy.
-if ( typeof noTrailing !== &apos;boolean&apos; ) {
-    debounceMode = callback;
-    callback = noTrailing;
-    noTrailing = undefined;
-}
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * Throttle execution of a function. Especially useful for rate limiting
+ * execution of handlers on events like resize and scroll.
+ *
+ * @param  {Number}    delay          A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+ * @param  {Boolean}   [noTrailing]   Optional, defaults to false. If noTrailing is true, callback will only execute every `delay` milliseconds while the
+ *                                    throttled-function is being called. If noTrailing is false or unspecified, callback will be executed one final time
+ *                                    after the last throttled-function call. (After the throttled-function has not been called for `delay` milliseconds,
+ *                                    the internal counter is reset)
+ * @param  {Function}  callback       A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+ *                                    to `callback` when the throttled-function is executed.
+ * @param  {Boolean}   [debounceMode] If `debounceMode` is true (at begin), schedule `clear` to execute after `delay` ms. If `debounceMode` is false (at end),
+ *                                    schedule `callback` to execute after `delay` ms.
+ *
+ * @return {Function}  A new, throttled, function.
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> delay, noTrailing, callback, debounceMode </span>) </span>{
 
-/*
- * The `wrapper` function encapsulates all of the throttling / debouncing
- * functionality and when executed will limit the rate at which `callback`
- * is executed.
- */
-function wrapper () {
+    <span class="hljs-comment">/*
+     * After wrapper has stopped being called, this timeout ensures that
+     * `callback` is executed at the proper times in `throttle` and `end`
+     * debounce modes.
+     */</span>
+    <span class="hljs-keyword">var</span> timeoutID;
+    <span class="hljs-keyword">var</span> cancelled = <span class="hljs-literal">false</span>;
 
-    var self = this;
-    var elapsed = Date.now() - lastExec;
-    var args = arguments;
+    <span class="hljs-comment">// Keep track of the last time `callback` was executed.</span>
+    <span class="hljs-keyword">var</span> lastExec = <span class="hljs-number">0</span>;
 
-    if (cancelled) {
-        return;
+    <span class="hljs-comment">// Function to clear existing timeout</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clearExistingTimeout</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( timeoutID ) {
+            clearTimeout(timeoutID);
+        }
     }
 
-    // Execute `callback` and update the `lastExec` timestamp.
-    function exec () {
-        lastExec = Date.now();
-        callback.apply(self, args);
+    <span class="hljs-comment">// Function to cancel next exec</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cancel</span> (<span class="hljs-params"></span>) </span>{
+        clearExistingTimeout();
+        cancelled = <span class="hljs-literal">true</span>;
     }
 
-    /*
-     * If `debounceMode` is true (at begin) this is used to clear the flag
-     * to allow future `callback` executions.
-     */
-    function clear () {
-        timeoutID = undefined;
+
+    <span class="hljs-comment">// `noTrailing` defaults to falsy.</span>
+    <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> noTrailing !== <span class="hljs-string">&apos;boolean&apos;</span> ) {
+        debounceMode = callback;
+        callback = noTrailing;
+        noTrailing = <span class="hljs-literal">undefined</span>;
     }
 
-    if ( debounceMode &amp;&amp; !timeoutID ) {
-        /*
-         * Since `wrapper` is being called for the first time and
-         * `debounceMode` is true (at begin), execute `callback`.
-         */
-        exec();
+    <span class="hljs-comment">/*
+     * The `wrapper` function encapsulates all of the throttling / debouncing
+     * functionality and when executed will limit the rate at which `callback`
+     * is executed.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapper</span> (<span class="hljs-params"></span>) </span>{
+
+        <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
+        <span class="hljs-keyword">var</span> elapsed = <span class="hljs-built_in">Date</span>.now() - lastExec;
+        <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">arguments</span>;
+
+        <span class="hljs-keyword">if</span> (cancelled) {
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-comment">// Execute `callback` and update the `lastExec` timestamp.</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exec</span> (<span class="hljs-params"></span>) </span>{
+            lastExec = <span class="hljs-built_in">Date</span>.now();
+            callback.apply(self, args);
+        }
+
+        <span class="hljs-comment">/*
+         * If `debounceMode` is true (at begin) this is used to clear the flag
+         * to allow future `callback` executions.
+         */</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clear</span> (<span class="hljs-params"></span>) </span>{
+            timeoutID = <span class="hljs-literal">undefined</span>;
+        }
+
+        <span class="hljs-keyword">if</span> ( debounceMode &amp;&amp; !timeoutID ) {
+            <span class="hljs-comment">/*
+             * Since `wrapper` is being called for the first time and
+             * `debounceMode` is true (at begin), execute `callback`.
+             */</span>
+            exec();
+        }
+
+        clearExistingTimeout();
+
+        <span class="hljs-keyword">if</span> ( debounceMode === <span class="hljs-literal">undefined</span> &amp;&amp; elapsed &gt; delay ) {
+            <span class="hljs-comment">/*
+             * In throttle mode, if `delay` time has been exceeded, execute
+             * `callback`.
+             */</span>
+            exec();
+
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( noTrailing !== <span class="hljs-literal">true</span> ) {
+            <span class="hljs-comment">/*
+             * In trailing throttle mode, since `delay` time has not been
+             * exceeded, schedule `callback` to execute `delay` ms after most
+             * recent execution.
+             *
+             * If `debounceMode` is true (at begin), schedule `clear` to execute
+             * after `delay` ms.
+             *
+             * If `debounceMode` is false (at end), schedule `callback` to
+             * execute after `delay` ms.
+             */</span>
+            timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === <span class="hljs-literal">undefined</span> ? delay - elapsed : delay);
+        }
+
     }
 
-    clearExistingTimeout();
+    wrapper.cancel = cancel;
 
-    if ( debounceMode === undefined &amp;&amp; elapsed &gt; delay ) {
-        /*
-         * In throttle mode, if `delay` time has been exceeded, execute
-         * `callback`.
-         */
-        exec();
-
-    } else if ( noTrailing !== true ) {
-        /*
-         * In trailing throttle mode, since `delay` time has not been
-         * exceeded, schedule `callback` to execute `delay` ms after most
-         * recent execution.
-         *
-         * If `debounceMode` is true (at begin), schedule `clear` to execute
-         * after `delay` ms.
-         *
-         * If `debounceMode` is false (at end), schedule `callback` to
-         * execute after `delay` ms.
-         */
-        timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
-    }
-
-}
-
-wrapper.cancel = cancel;
-
-// Return the wrapper function.
-return wrapper;
-</code></pre><p>```</p>
-<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; All Rights Reserved </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> updated 2019-11-20 10:55:32 </span> </footer>
+    <span class="hljs-comment">// Return the wrapper function.</span>
+    <span class="hljs-keyword">return</span> wrapper;
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> &#xA9; All Rights Reserved </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> updated 2020-06-03 15:45:55 </span> </footer>
                                 
                                 </section>
                             
@@ -1002,7 +1002,7 @@ return wrapper;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.节流","level":"1.3.3","depth":2,"next":{"title":"4.防抖","level":"1.3.4","depth":2,"path":"Blog-专题js读后感/4.防抖问题.md","ref":"Blog-专题js读后感/4.防抖问题.md","articles":[]},"previous":{"title":"2.深浅拷贝","level":"1.3.2","depth":2,"path":"Blog-专题js读后感/copy.md","ref":"Blog-专题js读后感/copy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","page-footer-ex","code","copy-code-button","github","sharing-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/webbj97"},"page-footer-ex":{"copyright":"© All Rights Reserved","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"updated"},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"姜博健","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook Use","links":{"sidebar":{"CSDN":"https://blog.csdn.net/jbj6568839z"}},"gitbook":"*"},"file":{"path":"Blog-专题js读后感/3.节流问题.md","mtime":"2019-11-20T02:55:32.953Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-02T09:11:41.910Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.节流","level":"1.3.3","depth":2,"next":{"title":"4.防抖","level":"1.3.4","depth":2,"path":"Blog-专题/4.防抖问题.md","ref":"Blog-专题/4.防抖问题.md","articles":[]},"previous":{"title":"2.深浅拷贝","level":"1.3.2","depth":2,"path":"Blog-专题/copy.md","ref":"Blog-专题/copy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","page-footer-ex","code","copy-code-button","github","sharing-plus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/webbj97"},"page-footer-ex":{"copyright":"© All Rights Reserved","markdown":false,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"updated"},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"姜博健","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitbook Use","links":{"sidebar":{"CSDN":"https://blog.csdn.net/jbj6568839z"}},"gitbook":"*"},"file":{"path":"Blog-专题/3.节流问题.md","mtime":"2020-06-03T07:45:55.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T09:58:46.740Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
