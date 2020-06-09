@@ -7,34 +7,68 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-
-
-
+    #item{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background: blue;
+    }
     </style>
 </head>
 
 <body>
-
+    <div id="item"></div>
 
     <script>
-        var arr = [];
-
-        for(let i = 0;i < 100; i++){
-            arr.push(i);
-        };
-
-        var renderList  = function(data){
-            for(let i = 0; i < data.length; i++){
-                var div = document.createElement('div');
-                div.innerHTML = i
-                document.body.appendChild(div);
+        var teen = {
+            // t=动画已消耗的时间；b=小球的原始位置；c=小球的目标位置；d=动画的持续时间
+            linear: function (t, b, c, d) {
+                return c * t / d + b // 线性运动
             }
         }
 
-        renderList(arr)
+        var Animate = function(dom){
+            this.dom = dom;
+            this.startTime = 0;
+            this.startPos = 0;
+            this.endPos = 0;
+            this.prototyName = null;
+            this.easing = null;
+            this.duration = null;
+        }
+        Animate.prototype.start = function(prototyName, endPos, duration, easing){
+            this.startTime = Date.now();
+            this.startPos = this.dom.getBoundingClientRect()[prototyName];
+            this.prototyName = prototyName;
+            this.endPos = endPos;
+            this.duration = duration;
+            this.easing = teen[easing];
+            var self = this;
+            var timeId = setInterval(() => {
+                if(self.step() === false){
+                    clearInterval(timeId);
+                }
+            }, 19);
+        }
+        Animate.prototype.step = function(){
+            var t = Date.now();
+            if(t >= this.startTime + this.duration){
+                this.update(this.endPos);
+                return false;
+            }
+            var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration);
+            this.update(pos)
+        }
+        Animate.prototype.update = function(pos){
+            this.dom.style[this.prototyName] = pos + 'px';
+        };
 
+        var div = document.getElementById('item');
+        var animate = new Animate(div);
+
+        animate.start('left', 500, 1000, 'linear');
     </script>
-
 </body>
 
 </html>
