@@ -4,19 +4,16 @@
  * @Email: webbj97@163.com
  * @Date: 2020-05-12 15:22:10
  */
-function foo(num) {
-    console.log('foo:', num);
-    this.count++
-    console.log('this:', this);
+
+function aaa() {
+  console.log('1:函数aaa内部' );
+  bbb();
+  console.log('2:函数aaa内部');
 }
 
-foo.count = 0
-
-var i;
-for(let i = 0; i < 10; i++){
-    if(i > 5){
-        foo(i)
-    }
+function bbb() {
+  console.log('3:函数bbb内部');
 }
 
-console.log('foo.count:', foo.count);
+aaa();
+console.log('4:全局');

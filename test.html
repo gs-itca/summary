@@ -7,68 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    #item{
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 10px;
-        background: blue;
-    }
+        .test {
+            width: 200px;
+            height: 300px;
+            background: red;
+            justify-content: space-between;
+        }
     </style>
 </head>
 
 <body>
-    <div id="item"></div>
+    <div class="test" style="color: #ccc;font-size: 14px;">
+        联系人：飞翔<br />
+        电话/微信：19959852110<br />
+        合作邮箱：feixiang@gaoding.com<br />
+        联系地址：厦门市湖里区高林中路535号万科云玺27楼<br />
+    </div>
+    <div style="background: url('http://sc.huanleguang.com/hlgofficial/about/bg-gd.png') no-repeat;
+     background-size: 1120px 256px; width: 1120px; height: 256px; padding: 36px 32px 0">
+        <div style="color: #1f44f2"><b style="font-size: 20px; padding-left: 20px; line-height: 38px;">稿定设计</b> | 让设计更简单</div>
+        <p class="hlg-ui-text-white">稿定设计是一个多场景在线商业视觉设计工具及内容平台，我们打破了工具与技术限制，基于丰富的可商用版权素材，根据不同场景的需求，设计制作了海量优质模板。</p>
+        <p class="hlg-ui-text-white">让所有用户通过简单的拖、拉、拽等操作就可以轻松制作出精美的手机海报、演示文档PPT、电商素材、新媒体素材、营销及行政物料等各类平面设计与创意视频。并通过在PC、WAP、APP、小程序等多端布局，让用户随时随地完成设计。
+        </p>
+        <p class="hlg-ui-text-white">产品包括：稿定设计（WEB/APP）、稿定视频app端、在线ps、码工在线</p>
+    </div>
 
-    <script>
-        var teen = {
-            // t=动画已消耗的时间；b=小球的原始位置；c=小球的目标位置；d=动画的持续时间
-            linear: function (t, b, c, d) {
-                return c * t / d + b // 线性运动
-            }
-        }
-
-        var Animate = function(dom){
-            this.dom = dom;
-            this.startTime = 0;
-            this.startPos = 0;
-            this.endPos = 0;
-            this.prototyName = null;
-            this.easing = null;
-            this.duration = null;
-        }
-        Animate.prototype.start = function(prototyName, endPos, duration, easing){
-            this.startTime = Date.now();
-            this.startPos = this.dom.getBoundingClientRect()[prototyName];
-            this.prototyName = prototyName;
-            this.endPos = endPos;
-            this.duration = duration;
-            this.easing = teen[easing];
-            var self = this;
-            var timeId = setInterval(() => {
-                if(self.step() === false){
-                    clearInterval(timeId);
-                }
-            }, 19);
-        }
-        Animate.prototype.step = function(){
-            var t = Date.now();
-            if(t >= this.startTime + this.duration){
-                this.update(this.endPos);
-                return false;
-            }
-            var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration);
-            this.update(pos)
-        }
-        Animate.prototype.update = function(pos){
-            this.dom.style[this.prototyName] = pos + 'px';
-        };
-
-        var div = document.getElementById('item');
-        var animate = new Animate(div);
-
-        animate.start('left', 500, 1000, 'linear');
-    </script>
+    <div style="background: url('http://sc.huanleguang.com/hlgofficial/about/bg-hlg.png') no-repeat;
+     background-size: 1120px 204px; width: 1120px; height: 204px; padding: 36px 32px 0">
+        <div style="color: #d92424"><b style="font-size: 20px; padding-left: 20px; line-height: 38px;">稿定设计</b> | 让设计更简单</div>
+        <p class="hlg-ui-text-white">欢乐逛助手工具软件是一款综合性企业服务级软件，主要为电商商家（淘宝、天猫、飞猪等电商平台上的卖家）提供店铺综合管理工具；通过技术驱动有效提供聚划算淘抢购批量完善、海量订单解决方案、智能生成标题和智能生成透明图等综合解决方案。</p>
+        <p class="hlg-ui-text-white">产品包括：欢乐逛、欢乐逛促销、欢乐逛打单、欢乐逛送券、欢乐逛抽奖、欢乐逛尺码助手、欢乐逛商品</p>
+    </div>
 </body>
 
 </html>
