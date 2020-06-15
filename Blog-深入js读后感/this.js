@@ -5,15 +5,15 @@
  * @Date: 2020-05-12 15:22:10
  */
 
-function aaa() {
-  console.log('1:函数aaa内部' );
-  bbb();
-  console.log('2:函数aaa内部');
-}
+console.log(1);
 
-function bbb() {
-  console.log('3:函数bbb内部');
+function father() {
+    console.log(2);
+    (function child() {
+        console.log(3);
+    }());
+    console.log(4);
 }
+father();
 
-aaa();
-console.log('4:全局');
+console.log(5);
