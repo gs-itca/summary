@@ -5,15 +5,32 @@
  * @Date: 2020-05-12 15:22:10
  */
 
-console.log(1);
+// var i = function() {
+//     console.log('余光')
+// }();
 
-function father() {
-    console.log(2);
-    (function child() {
-        console.log(3);
-    }());
-    console.log(4);
-}
-father();
+// true && function() {
+//     console.log('余光')
+// }();
 
-console.log(5);
+// 0, function() { console.log('余光') }();
+
+
+void function() {
+    console.log('余光');
+}();
+
+new function() {
+    console.log('余光');
+}();
+
+var currentTime = (function () {
+    var time = new Date();
+    var year  = time.getFullYear()
+    var month = time.getMonth()+1;
+    var date  = time.getDate();
+    var hour  = time.getHours();
+    var min   = time.getMinutes();
+    return year + '-' + month + '-' + date + ' ' + hour + ':' + min;
+})()
+console.log('currentTime:', currentTime);
