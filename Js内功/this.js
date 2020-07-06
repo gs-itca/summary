@@ -1,28 +1,13 @@
-/*
- * @desc:
- * @Author: 余光
- * @Email: webbj97@163.com
- * @Date: 2020-05-12 15:22:10
- */
-var scope = "global scope";
-function checkscope(){
-    var scope = "local scope";
-    function f(){
-        return scope;
-    }
-    return f;
-}
+// Numbers 基本数字和小数
+typeof 37 === 'number'; // true
+typeof 3.14 === 'number'; // true
 
-var foo = checkscope();
-foo();
-console.log('foo()', foo());
+// 基本数学API和属性
+typeof Math.LN2 === 'number'; // true
+typeof Infinity === 'number'; // true
+typeof -Infinity === 'number'; // true
+typeof NaN === 'number'; // true NaN是特殊的数字类型，
 
-
-var group = {
-    num: 10
-}
-function func(obj) {
-    obj.num += 10;
-    console.log('obj:', obj);
-}
-func(group); // { num: 20 }
+// 被强转称数字的其他数据类型
+typeof Number('1') === 'number';      // Number tries to parse things into numbers
+typeof Number('shoe') === 'number';   // including values that cannot be type coerced to a number
