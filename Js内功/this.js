@@ -9,5 +9,5 @@ typeof -Infinity === 'number'; // true
 typeof NaN === 'number'; // true NaN是特殊的数字类型，
 
 // 被强转称数字的其他数据类型
-typeof Number('1') === 'number';      // Number tries to parse things into numbers
-typeof Number('shoe') === 'number';   // including values that cannot be type coerced to a number
+typeof Number('1') === 'number'; // Number('1') => 1 => number
+typeof Number('shoe') === 'number'; // Number('shoe') => NaN => number
