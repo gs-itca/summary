@@ -1,5 +1,9 @@
-
-const baseUrl = 'https://yuguang.blog.csdn.net/article/details/'
+/*
+ * @desc:
+ * @Author: 余光
+ * @Email: webbj97@163.com
+ * @Date: 2020-07-10 15:05:41
+ */
 const LIST = [
 	{
 		"titie": "JavaScript中的基本数据类型，地基同样重要（系列九）",
@@ -74,7 +78,7 @@ const LIST = [
 		"discuss": "0"
 	},
 	{
-		"titie": "LeetCode题解：540.检测大写字母",
+		"titie": "LeetCode题解：520.检测大写字母",
 		"link": "https://blog.csdn.net/jbj6568839z/article/details/106265191",
 		"visit": "636",
 		"discuss": "0"
@@ -99,7 +103,7 @@ const LIST = [
 	},
 	{
 		"titie": "LeetCode题解：374.猜数字大小",
-		"link": "https://blog.csdn.net/jbj6568839z/article/details/106408957",
+		"link": "https://blog.csdn.net/jbj6568839z/article/details/106208957",
 		"visit": "62",
 		"discuss": "0"
 	},
@@ -241,25 +245,6 @@ const LIST = [
 		"visit": "89",
 		"discuss": "0"
 	}
-];
-var index = 0; // 全局，暂定5s+1
-var sum = 0; // 总数
-var iNote; // 文章
-var iNoteTime; // 文章增加
-var size = LIST.length;
-var timer = setInterval(() => {
-    iNote = LIST[index].titie;
-    iNoteTime = Math.ceil((sum+1)/size);
-    myWindow = window.open(LIST[index].link, '', 'width=200,height=100');
-    myWindow.blur();
-    if(index < size-1){
-        index++;
-    }else{
-        index = 0;
-    }
-    sum++;
-    setTimeout(() => {
-        myWindow.close()
-        console.log(`总累计${sum}次：当前文章${iNote}-累计增加${iNoteTime}次`);
-    }, 1000);
-}, 3000);
+]
+
+
